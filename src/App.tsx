@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
+import { PagePath } from '../src/Other/Commons/Page';
+import RegisterPage from '../src/View/Register/Component/main';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path={PagePath.Register}
+          element={
+              <RegisterPage />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+);
 
 export default App;
